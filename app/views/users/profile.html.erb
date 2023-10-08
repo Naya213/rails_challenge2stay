@@ -1,6 +1,5 @@
-<h2>Users</h2>
+<h2>プロフィール</h2>
 <hr />
-
 <p>
     <strong>画像</strong>
     <%= image_tag  "#{@user_image}" %>
@@ -10,17 +9,9 @@
     <%= @user.name %>
 </p>
 <p>
-    <strong>e-mail</strong>
-    <%= @user.email %>
-</p>
-<p>
-    <strong>パスワード</strong>
-    <p>*********</p>
-</p>
-<p>
     <strong>自己紹介</strong>
     <%= @user.introduction %>
 </p>
 <p>
-    <%= link_to "編集", edit_user_registration_path(current_user) %>
+    <%= link_to "編集", profile_edit_users_path(@user) %>
 </p>

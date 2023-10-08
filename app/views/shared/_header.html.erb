@@ -1,15 +1,27 @@
 <header class="header">
+  <div class="container">
     <h1>
         <%= link_to image_tag("logo.png", class:"image_switch", alt: "アイコン"), users_path %>
     </h1>
     <nav>
     <% if user_signed_in? %>
-      <%= "こんにちは#{current_user.email}さん"  %>
-      <%= link_to "#{current_user.name}さんの情報はこちら", user_path(current_user)%>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-    <% else %>
+      <div class="linkArea-user">
+          <%= image_tag "#{current_user.img}"  %>
+            <span>
+              <%= current_user.name %>
+            </span>
+      </div>
+      <ul class="dropdown-menu">
+        <li><%= link_to '施設の新規登録', users_path %></li>
+        <li><%= link_to '予約済み一覧', users_path %></li>
+        <li><%= link_to '登録済み一覧', users_path %></li>
+        <li><%= link_to 'アカウント設定', account_users_path(current_user) %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+      </ul>
+      <% else %>
       <%= link_to 'サインアップ', new_user_registration_path %>
       <%= link_to 'ログイン', new_user_session_path %>
     <% end %>
-  </nav>
+    </nav>
+  </div>
 </header>

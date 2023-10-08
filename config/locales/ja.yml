@@ -2,3 +2,9 @@ ja:
   errors:
     messages:
       not_saved: "config/locales/ja.ymlでここのメッセージを変更できる"
+  devise:
+    sessions:
+      signed_in: "ログインしました！"
+      signed_out: "ログアウトしました！"
+    registrations:
+      updated: "ユーザー情報を更新しました！"

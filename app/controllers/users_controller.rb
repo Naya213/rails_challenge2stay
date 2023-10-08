@@ -1,28 +1,18 @@
 class UsersController < ApplicationController
-  def index
+  def account
+    @user = current_user
   end
 
-  def new
-  end
-
-  def create
-  end
-
-  def show
-    @user = User.find(params[:id])
+  def profile
+    @user = current_user
     @user_image = "default_img/default-avatar.png"
     if @user.img.present?
-       @user_image = @user.img
+        @user_image = @user.img
     end
   end
 
   def edit
-  end
-
-  def update
-  end
-
-  def destroy
+    @user = current_user
   end
 
   private

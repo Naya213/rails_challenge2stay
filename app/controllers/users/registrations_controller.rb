@@ -15,22 +15,30 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    super
+  end
 
   # PUT /resource
   def update
     super
-    #必須  更新（編集の反映）時にパスワード入力を省く
-    # def update_resource(resource, params)
-    #   # resource.update_without_password(params)
-    # end
-
     #任意  更新後のパスを指定
     def after_update_path_for(resource)
-      user_path(@user.id)
+      puts request.referer
+      puts request.referer
+      puts request.referer
+      puts request.referer
+      if request.referer.include?("account")
+        account_users_path(current_user)
+      else
+        profile_users_path(current_user)
+      end
     end
+  end
+
+  #必須  更新（編集の反映）時にパスワード入力を省く
+  def update_resource(resource, params)
+    resource.update_without_password(params)
   end
 
   # DELETE /resource

@@ -2,9 +2,116 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-header,footer{
-    background-color: #ccc;
+body{
+    padding: 0;
+    margin: 0;
+    position: relative;
 }
+a{
+    text-decoration: none;
+}
+ul,li{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notice{
+    position: fixed;
+    top: 650px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    background-color: #000;
+    color: rgba(255,255,255,0.9);
+    padding: 20px 35px;
+    text-align: center;
+    border-radius: 15px;
+}
+
 header,footer{
+    background-color: #1c1d3b;
+    width: 100%;
+    align-items: center;
+}
+header{
+    height: 80px;
+    position: relative;
+}
+footer{
+    height: 465px;
     color: #fff;
+    display: grid;
+}
+.container{
+    width: 90%;    
+    margin: 0 auto;
+}
+header .container{
+    display: flex;
+    justify-content: space-between;
+}
+header h1 a img, footer a img{
+    width: 221px;
+}
+nav>a{
+    // サインアップとログインにのみ適応のためnav直下のaタグのみに指定
+    color: #fff;
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 10px;
+}
+.linkArea-user{
+    padding: 18px 0;
+    cursor: pointer;
+}
+.linkArea-user img{
+    width: 40px;
+    vertical-align: middle; 
+}
+.linkArea-user span{
+    color: #fff;
+}
+.linkArea-user span::after{
+    content: ">";
+}
+ul.dropdown-menu{
+    position: absolute;
+    top: 85px;
+    right: 40px;
+    border: 1px solid rgba(0,0,0,.15);
+    background-color: #fff;
+    padding: 5px;
+}
+.FirstView{
+    background-image: url(first-view.jpg);
+    width: 100%;
+    height: 850px;
+    padding-top: 117px;
+}
+.FirstView h2 {
+    color: #fff;
+    font-size: 84px;
+    font-weight: 400;
+    line-height: 101px;
+    margin-top: 0;
+    margin-bottom: 48px;
+    text-align: center;
+    word-break: keep-all;
+}
+.FirstView form{
+    background: hsla(0,0%,100%,.4);
+    margin: auto;
+    padding: 32px;
+    width: 704px;
+}
+.FirstView form input{
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 70px;
+    padding: 0;
+}
+.FirstView form input[type="submit"]{
+    margin-top: 40px;
 }
