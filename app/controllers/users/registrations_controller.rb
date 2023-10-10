@@ -22,17 +22,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     super
-    #任意  更新後のパスを指定
-    def after_update_path_for(resource)
-      puts request.referer
-      puts request.referer
-      puts request.referer
-      puts request.referer
-      if request.referer.include?("account")
-        account_users_path(current_user)
-      else
-        profile_users_path(current_user)
-      end
+  end
+
+  #任意  更新後のパスを指定
+  def after_update_path_for(resource)
+    if request.referer.include?("account")
+      account_users_path(current_user)
+    else
+      profile_users_path(current_user)
     end
   end
 

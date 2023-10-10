@@ -1,17 +1,41 @@
-<h2>プロフィール</h2>
-<hr />
-<p>
-    <strong>画像</strong>
-    <%= image_tag  "#{@user_image}" %>
-</p>
-<p>
-    <strong>ユーザー名</strong>
-    <%= @user.name %>
-</p>
-<p>
-    <strong>自己紹介</strong>
-    <%= @user.introduction %>
-</p>
-<p>
-    <%= link_to "編集", profile_edit_users_path(@user) %>
-</p>
+<div class="user-info">
+<h2>設定</h2>
+    <div class="user-setting">
+        <table class="link-user-setting">
+            <tr>
+                <td><%= link_to "アカウント", account_users_path(@user) %></td>
+            </tr>
+            <tr>
+                <td><%= link_to "プロフィール", profile_users_path(@user) %></td>
+            </tr>
+        </table>
+        <table class="user-data">
+            <thead>
+                <tr>
+                    <th>アカウント</th>
+                    <th>
+                        <%= link_to "編集", profile_edit_users_path(@user) %>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>画像</th>
+                    <td>
+                        <%= image_tag  "#{@user_image}" %>
+                    </td>
+                <tr>
+                <tr>
+                    <th>名前</th>
+                    <td>
+                        <%= @user.name %>
+                    </td>
+                <tr>
+                <tr>
+                    <th>自己紹介</th>
+                    <td><%= @user.introduction %></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

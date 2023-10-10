@@ -1,13 +1,35 @@
-<h2>Users</h2>
-<hr />
-<p>
-    <strong>e-mail</strong>
-    <%= @user.email %>
-</p>
-<p>
-    <strong>パスワード</strong>
-    <p>*********</p>
-</p>
-<p>
-    <%= link_to "編集", account_edit_users_path(@user) %>
-</p>
+<div class="user-info">
+<h2>設定</h2>
+    <div class="user-setting">
+        <table class="link-user-setting">
+            <tr>
+                <td><%= link_to "アカウント", account_users_path(@user) %></td>
+            </tr>
+            <tr>
+                <td><%= link_to "プロフィール", profile_users_path(@user) %></td>
+            </tr>
+        </table>
+        <table class="user-data">
+            <thead>
+                <tr>
+                    <th>アカウント</th>
+                    <th>
+                        <%= link_to "編集", account_edit_users_path(@user) %>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>メールアドレス</th>
+                    <td>
+                        <%= @user.email %>
+                    </td>
+                <tr>
+                <tr>
+                    <th>パスワード</th>
+                    <td>*********</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

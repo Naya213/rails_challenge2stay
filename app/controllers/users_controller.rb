@@ -13,6 +13,17 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
+    @path = request.referer
+    if @path.include?("account")
+        @data = 'account';
+    elsif @path.include?("profile")
+        @data = 'profile';
+    end
+
+    @path = request.referer
+    pp @path
+    pp @path
+    pp @path
   end
 
   private

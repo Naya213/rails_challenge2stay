@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.profile,.account{
+    display: none;
+}
 body{
     padding: 0;
     margin: 0;
@@ -76,6 +79,7 @@ nav>a{
     content: ">";
 }
 ul.dropdown-menu{
+    display: none;
     position: absolute;
     top: 85px;
     right: 40px;
@@ -114,4 +118,46 @@ ul.dropdown-menu{
 }
 .FirstView form input[type="submit"]{
     margin-top: 40px;
+}
+.user-info{
+    width: 95%;
+    margin: 50px auto;
+}
+.user-info h2{
+    width: 80%;
+}
+.user-setting{
+    display: flex;
+}
+.user-setting table{
+    border-collapse:collapse;
+}
+.user-setting table.link-user-setting{
+    width: 20%;
+    height: 100px;
+}
+.user-setting table.link-user-setting td{
+    border: 1px solid #333;
+    padding: 20px 10px;
+}
+.user-setting table.user-data{
+    width: 60%;
+    margin-left: 80px;
+}
+.user-setting table.user-data th{
+    width: 20%;
+    text-align: left;
+}
+.user-setting table.user-data td{
+    width: 70%;
+    padding: 20px 10px;
+}
+.user-setting table.user-data thead{
+    font-size: 25px;
+}
+.user-setting table.user-data thead th{
+    border-bottom: 1px solid #333;
+}
+.user-setting table.user-data thead th:nth-child(2){
+    text-align: right;
 }

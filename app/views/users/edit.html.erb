@@ -1,41 +1,82 @@
 <h2>ユーザ情報の編集 <%= :user.to_s.humanize %></h2>
 
+<script>
+  window.addEventListener('DOMContentLoaded', function(){
+    var data = "<%= @data %>";
+    console.log(data);
+    if(data == "account"){
+      console.log("ifを実行したよ");
+      $('.account').css('display', 'block');
+      $('.profile').css('display', 'none');
+    }else if(data == "profile"){
+      $('.account').css('display', 'none');
+      $('.profile').css('display', 'block');
+    }
+  });
+</script>
+
 <%= form_for(@user, as: :user, url: registration_path(@user), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: @user %>
-
-  <div class="field">
-    <%= f.label :img %> <br />
-    <%= f.file_field :img %>
-  </div>
-
-  <div class="field">
-    <%= f.label :name %> <br />
-    <%= f.text_field :name, autocomplete: "name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :introduction %> <br />
-    <%= f.text_area :introduction %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="user-setting">
+        <table class="link-user-setting">
+            <tr>
+                <td><%= link_to "アカウント", account_users_path(@user) %></td>
+            </tr>
+            <tr>
+                <td><%= link_to "プロフィール", profile_users_path(@user) %></td>
+            </tr>
+        </table>
+        <table class="user-data">
+            <thead>
+                <tr>
+                    <th>アカウント</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="field profile">
+                    <th><%= f.label :img %></th>
+                    <td>
+                      <%= f.file_field :img %>
+                    </td>
+                <tr>
+                <tr class="field profile">
+                    <th><%= f.label :name %></th>
+                    <td>
+                      <%= f.text_field :name, autocomplete: "name" %>
+                    </td>
+                <tr>
+                <tr class="field profile">
+                    <th><%= f.label :introduction %></th>
+                    <td>
+                      <%= f.text_area :introduction %>
+                    </td>
+                <tr>
+                <tr class="field account">
+                    <th><%= f.label :email %></th>
+                    <td>
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                    </td>
+                <tr>
+                <tr class="field account">
+                    <th><%= f.label :email %></th>
+                    <td>
+                      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+                      <%= f.password_field :password, autocomplete: "new-password" %>
+                      <% if @minimum_password_length %>
+                        <br />
+                        <em><%= @minimum_password_length %> characters minimum</em>
+                      <% end %>
+                    </td>
+                </tr>
+                <tr class="field account">
+                  <th><%= f.label :password_confirmation %></th>
+                  <td>
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
   <div class="actions">
     <%= f.submit "Update" %>
@@ -46,4 +87,4 @@
 
 <div>Unhappy? <%= button_to "Cancel my account", registration_path(:user), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
-<%= link_to "Back", :back %>
+<%= link_to "キャンセル", :back %>
