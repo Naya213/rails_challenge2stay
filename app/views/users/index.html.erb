@@ -4,20 +4,25 @@
         まだ体験したことのない<br>
         旅をしよう
         </h2>
-        <form>
-            <input type="text" placeholder="エリア名を入力">
-            <input type="submit">
-        </form>
+        <%= form_with url: rooms_path, local: true, method: :get do |f| %>
+            <%= f.text_field :word, :placeholder => "エリア名を入力" %>
+            <%= f.hidden_field :search, value: "partial_match" %>
+            <%= f.submit "検索", class: "btn-sm btn-primary" %>
+        <% end %>
     </div>
 </section>
 <section>
     <div class="container">
         <h3>おすすめのエリア</h3>
         <div class="recommend-imgs">
-            <%= link_to image_tag("recommend-area/tokyo.jpg",  size: "300x400", alt: "東京イメージ画像"), users_path %>
-            <%= link_to image_tag("recommend-area/tokyo.jpg",  size: "300x400", alt: "東京イメージ画像"), users_path %>
-            <%= link_to image_tag("recommend-area/tokyo.jpg",  size: "300x400", alt: "東京イメージ画像"), users_path %>
-            <%= link_to image_tag("recommend-area/tokyo.jpg",  size: "300x400", alt: "東京イメージ画像"), users_path %>
+            <%= link_to image_tag("recommend-area/tokyo.jpg", size: "300x400", alt: "東京イメージ画像"),
+            rooms_path(word: "東京", search: "forward_match") %>
+            <%= link_to image_tag("recommend-area/osaka.jpg",  size: "300x400", alt: "大阪イメージ画像"),
+            rooms_path(word: "大阪") %>
+            <%= link_to image_tag("recommend-area/kyoto.jpg",  size: "300x400", alt: "京都イメージ画像"),
+            rooms_path(word: "京都") %>
+            <%= link_to image_tag("recommend-area/sapporo.jpg",  size: "300x400", alt: "札幌イメージ画像"),
+            rooms_path(word: "札幌") %>
         </div>
     </div>
 </section>

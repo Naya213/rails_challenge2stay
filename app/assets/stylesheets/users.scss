@@ -120,14 +120,17 @@ ul.dropdown-menu{
     margin-top: 40px;
 }
 .user-info{
-    width: 95%;
+    width: 80%;
     margin: 50px auto;
 }
 .user-info h2{
-    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 20px;
 }
 .user-setting{
     display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
 }
 .user-setting table{
     border-collapse:collapse;
@@ -141,8 +144,7 @@ ul.dropdown-menu{
     padding: 20px 10px;
 }
 .user-setting table.user-data{
-    width: 60%;
-    margin-left: 80px;
+    width: 70%;
 }
 .user-setting table.user-data th{
     width: 20%;
@@ -160,4 +162,7 @@ ul.dropdown-menu{
 }
 .user-setting table.user-data thead th:nth-child(2){
     text-align: right;
+}
+td.img-profile img{
+    width: 120px;
 }

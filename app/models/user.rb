@@ -20,4 +20,6 @@ class User < ApplicationRecord
     clean_up_passwords
     result
   end
+
+  has_many :rooms
 end

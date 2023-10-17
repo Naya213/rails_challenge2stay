@@ -8,3 +8,8 @@ ja:
       signed_out: "ログアウトしました！"
     registrations:
       updated: "ユーザー情報を更新しました！"
+      signed_up: "新しいアカウントが登録されました"
+  time:
+    formats:
+      default: "%Y/%m/%d"
+      time: "%Y/%m/%d %H:%M"

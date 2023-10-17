@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def account
     @user = current_user
   end
@@ -19,11 +20,6 @@ class UsersController < ApplicationController
     elsif @path.include?("profile")
         @data = 'profile';
     end
-
-    @path = request.referer
-    pp @path
-    pp @path
-    pp @path
   end
 
   private
@@ -31,4 +27,5 @@ class UsersController < ApplicationController
     #ストロングパラメータで、名前とメールを受け取ることができるように設定しておく。
     params.require(:user).permit(:name, :email ,:img)
   end
+  
 end

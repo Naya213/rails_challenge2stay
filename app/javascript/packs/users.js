@@ -1,7 +1,8 @@
-
-
 window.addEventListener('DOMContentLoaded', function(){
-    $('.linkArea-user').on('click',function(){
-        $('.dropdown-menu').toggle();
+    $(document).on('turbolinks:load', function() {
+        $('.linkArea-user').on('click',function(){
+            $('.dropdown-menu').toggle();
+            console.log("押されてるよ");
+        });
     });
-  });
+});

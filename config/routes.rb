@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root 'users#index'
+  get "search" => "searches#search"
+  get 'rooms/own', to: 'rooms#own'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # ↓テスト中
 
@@ -14,5 +16,7 @@ Rails.application.routes.draw do
       get 'profile/edit', action: 'edit'
     end
   end
+
+  resources :rooms
 
 end
