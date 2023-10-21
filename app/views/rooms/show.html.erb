@@ -1,5 +1,4 @@
-<h3>施設詳細</h3>
- 
+<h3>施設詳細</h3> 
 <table>
     <tr>
         <td class="img-profile">
@@ -25,7 +24,38 @@
         <th>住所</th>
         <td><%= @room.address %></td>
     </tr>
+    <tr> 
+    </tr>
 </table>
+<%= render "shared/error", obj: @reservation %>
+
+
+<%= form_with model: @reservation, url: reservations_confirm_path, local: true, method: :get do |f| %>
+    <div class="reservation">
+        <div>
+            <%= f.label :check_in ,"チェックイン" %>
+            <%= f.date_field :check_in %>
+        </div>
+    
+        <div class="select-days">
+            <div class="start_day">
+            <%= f.label :check_out ,"チェックアウト" %>
+            <%= f.date_field :check_out %>
+            </div>
+            <div class="finish_day">
+            <%= f.label :person_num ,"人数" %>
+            <%= f.number_field :person_num %>
+            </div>
+        </div>
+        <%= f.hidden_field :user_id, value: @user.id %>
+        <%= f.hidden_field :room_id, value: @room.id %>
+    <div class="btns">
+        <%= f.submit "予約"%>
+    </div>
+    <div>
+<% end %>
+
+
  
 <div>
     <ul>

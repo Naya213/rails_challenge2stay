@@ -22,4 +22,5 @@ class User < ApplicationRecord
   end
 
   has_many :rooms
+  has_many :reservations
 end

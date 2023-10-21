@@ -1,0 +1,37 @@
+<h1>Reservations#confirm</h1>
+<p>Find me in app/views/reservations/confirm.html.erb</p>
+
+<table>
+<tr>
+    <th>チェックイン</th>
+    <td><%= @reservation.check_in %></td>
+</tr>
+<tr>
+    <th>チェックアウト</th>
+    <td><%= @reservation.check_out %></td>
+</tr>
+<tr>
+    <th>宿泊日数</th>
+    <td><%= @stay_days %>日</td>
+</tr>
+<tr>
+    <th>人数</th>
+    <td><%= @reservation.person_num %></td>
+</tr>
+<tr>
+    <th>支払い金額</th>
+    <td><%= @sum_price %>円</td>
+</tr>
+
+<%= form_with model: @reservation do |f| %>
+    <%= f.hidden_field :check_in, value: @reservation.check_in %>
+    <%= f.hidden_field :check_out, value: @reservation.check_out %>
+    <%= f.hidden_field :person_num, value: @reservation.person_num %>
+    <%= f.hidden_field :sum_price, value: @sum_price %>
+    <%= f.hidden_field :user_id, value: @reservation.user_id %>
+    <%= f.hidden_field :room_id, value: @reservation.room_id %>
+        <div><%= f.submit "予約する"%></div>
+        <%= link_to "戻る", room_path(@reservation.room_id) %>
+  <% end %>
+
+</table>

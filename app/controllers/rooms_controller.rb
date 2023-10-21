@@ -33,6 +33,10 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+
+    # 以下は予約機能で使用する
+    @user = current_user
+    @reservation = Reservation.new
   end
 
   def edit

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   root 'users#index'
   get "search" => "searches#search"
   get 'rooms/own', to: 'rooms#own'
+  get 'reservations/confirm'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # ↓テスト中
 
@@ -18,5 +20,6 @@ Rails.application.routes.draw do
   end
 
   resources :rooms
+  resources :reservations
 
 end
