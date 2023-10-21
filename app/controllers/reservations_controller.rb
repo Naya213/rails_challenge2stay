@@ -12,12 +12,12 @@ class ReservationsController < ApplicationController
 
     if @reservation.invalid?
       flash[:notice] = "予約情報が不足しています"
-      @user = User.find_by(params[:reservation][:user_id])
-      @room = Room.find_by(params[:reservation][:room_id])
+      @user = User.find(params[:reservation][:user_id])
+      @room = Room.find(params[:reservation][:room_id])
       render "rooms/show"
     else
-      @stay_days = (@reservation.check_out - @reservation.check_in).to_i
-      @reservation_room = Room.find(params[:reservation][:room_id])
+      @stay_days = (@reservation.check_out - @reservation.check_in).to_i # 宿泊日数
+      @reservation_room = Room.find(params[:reservation][:room_id]) # 予約予定の部屋のidを含むレコードを取得
       @sum_price = @reservation_room.price * @reservation.person_num * @stay_days
     end
 

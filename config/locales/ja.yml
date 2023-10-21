@@ -1,7 +1,7 @@
 ja:
   errors:
     messages:
-      not_saved: "config/locales/ja.ymlでここのメッセージを変更できる"
+      not_saved: ""
   devise:
     sessions:
       signed_in: "ログインしました！"
@@ -13,3 +13,22 @@ ja:
     formats:
       default: "%Y/%m/%d"
       time: "%Y/%m/%d %H:%M"
+  activerecord:
+     models:
+       user: "ユーザー"
+       room: "施設"
+       reservation: "予約"
+     attributes:
+       user:
+         name: "名前"
+         introduction: "自己紹介"
+         img: "画像"
+       room:
+         name: "施設名"
+         introduction: "施設詳細"
+         price: "料金"
+         address: "住所"
+       reservation:
+         check_in: "チェックイン"
+         check_out: "チェックアウト"
+         person_num: "人数"

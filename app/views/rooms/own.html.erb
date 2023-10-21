@@ -1,37 +1,33 @@
-<h3>登録施設一覧</h3>
- 
- <table>
-   <thead>
-     <tr>
-       <th>施設画像</th>
-       <th>施設名</th>
-       <th>施設詳細</th>
-       <th>価格</th>
-       <th>住所</th>
-       <th></th>
-       <th></th>
-       <th>投稿者(User_id)</th>
-     </tr>
-   </thead>
- 
-   <tbody>
-     <% @rooms.each do |room| %>
-       <tr>
-         <td class="img-profile">
-         <% if room.img.blank?  %>
-            <%= image_tag  "default_img/default-room.png" %>
-         <% else %>
-            <%= image_tag  "#{room.img}" %>
-         <% end %>
-         </td>
-         <td><%= link_to room.name, room_path(room.id) %></td>
-         <td><%= room.introduction %></td>
-         <td><%= room.price %></td>
-         <td><%= room.address %></td>
-         <td><%= room.updated_at.to_s(:datetime_jp) %></td>
-         <td><%= room.created_at.to_s(:datetime_jp) %></td>
-         <td><%= room.user_id %></td>
-       </tr>
-     <% end %>
-   </tbody>
- </table>
+<div class="room_create_list">  
+  <h3>登録施設一覧</h3>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>施設画像</th>
+        <th>施設名</th>
+        <th>紹介文</th>
+        <th>価格</th>
+        <th>作成日</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @rooms.each do |room| %>
+        <tr>
+          <td class="img-profile">
+          <% if room.img.blank?  %>
+              <%= image_tag  "default_img/default-room.png" %>
+          <% else %>
+              <%= image_tag  "#{room.img}" %>
+          <% end %>
+          </td>
+          <td><%= link_to room.name, room_path(room.id) %></td>
+          <td><%= room.introduction %></td>
+          <td><%= room.price %></td>
+          <td><%= room.created_at.to_s(:datetime_jp) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

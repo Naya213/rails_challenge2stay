@@ -27,7 +27,7 @@ class RoomsController < ApplicationController
        redirect_to :rooms
      else
        @user = User.find_by(params[:room][:user_id])
-       render "rooms/new"
+       render "new"
      end
   end
 

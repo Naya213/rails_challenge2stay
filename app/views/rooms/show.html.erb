@@ -1,64 +1,69 @@
-<h3>施設詳細</h3> 
-<table>
-    <tr>
-        <td class="img-profile">
-        <% if @room.img.blank?  %>
-            <%= image_tag  "default_img/default-room.png" %>
-        <% else %>
-            <%= image_tag  "#{@room.img}" %>
-        <% end %>
-        </td>
-    </tr>
-        <th>施設名</th>
-        <td><%= @room.name %></td>
-    </tr>
-    <tr>
-        <th>施設詳細</th>
-        <td><%= @room.introduction %></td>
-    </tr>
-    <tr>
-        <th>料金</th>
-        <td><%= @room.price %></td>
-    </tr>
-    <tr>
-        <th>住所</th>
-        <td><%= @room.address %></td>
-    </tr>
-    <tr> 
-    </tr>
-</table>
-<%= render "shared/error", obj: @reservation %>
-
-
-<%= form_with model: @reservation, url: reservations_confirm_path, local: true, method: :get do |f| %>
-    <div class="reservation">
-        <div>
-            <%= f.label :check_in ,"チェックイン" %>
-            <%= f.date_field :check_in %>
-        </div>
-    
-        <div class="select-days">
-            <div class="start_day">
-            <%= f.label :check_out ,"チェックアウト" %>
-            <%= f.date_field :check_out %>
-            </div>
-            <div class="finish_day">
-            <%= f.label :person_num ,"人数" %>
-            <%= f.number_field :person_num %>
-            </div>
-        </div>
-        <%= f.hidden_field :user_id, value: @user.id %>
-        <%= f.hidden_field :room_id, value: @room.id %>
-    <div class="btns">
-        <%= f.submit "予約"%>
-    </div>
+<%= render "shared/search" %>
+<div class="room_detail">
     <div>
-<% end %>
-
-
- 
-<div>
-    <ul>
-        <li><%= link_to "戻る", :back %></li>
-    </ul>
+        <%= link_to "←戻る", :back %>
+    </div>
+    <div class="warapper_room_info">
+        <div>
+            <% if @room.img.blank?  %>
+                <%= image_tag  "default_img/default-room.png", width: "300px" %>
+            <% else %>
+                <%= image_tag  "#{@room.img}", width: "300px" %>
+            <% end %>
+        </div>
+        <div>
+            <table class="room_data">
+                <tr>
+                    <th>施設名</th>
+                    <td><%= @room.name %></td>
+                </tr>
+                <tr>
+                    <th>紹介文</th>
+                    <td><%= @room.introduction %></td>
+                </tr>
+                <tr>
+                    <th>料金</th>
+                    <td>¥<%= @room.price %>〜</td>
+                </tr>
+                <tr>
+                    <th>住所</th>
+                    <td><%= @room.address %></td>
+                </tr>
+                <tr> 
+                </tr>
+            </table>
+            <div class="reservation">
+                <%= render "shared/error", obj: @reservation %>
+                <%= form_with model: @reservation, url: reservations_confirm_path, local: true, method: :get do |f| %>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><%= f.label :check_in ,"チェックイン" %></th>
+                                <th><%= f.label :check_out ,"チェックアウト" %></th>
+                                <th><%= f.label :person_num ,"人数" %></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><%= f.date_field :check_in %></td>
+                                <td><%= f.date_field :check_out %></td>
+                                <td><%= f.number_field :person_num %></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <% if @user %>
+                                    <%= f.hidden_field :user_id, value: @user.id %>
+                                    <%= f.hidden_field :room_id, value: @room.id %>
+                                    <td colspan="3" class="btn_reservation"><%= f.submit "予約"%></td>
+                                <% else %>
+                                    <td colspan="3" class="btn_reservation"><%= link_to "ログイン", new_user_session_path %></td>
+                                <% end %>
+                            </tr>
+                        </tfoot>
+                    </table>
+                <% end %>
+            </div>
+        </div>
+    </div>
 </div>

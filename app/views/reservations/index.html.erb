@@ -1,37 +1,38 @@
-<h3>予約一覧</h3>
+<div class="reservation_list">
+    <h3>予約一覧</h3>
  
- <table>
-   <thead>
-     <tr>
-       <th>施設画像</th>
-       <th>施設名</th>
-       <th>施設詳細</th>
-       <th>合計料金</th>
-       <th>チェックイン</th>
-       <th>チェックアウト</th>
-       <th>予約確定日時</th>
-       <th>削除</th>
-     </tr>
-   </thead>
- 
-   <tbody>
-     <% @reservations.each do |reservation| %>
-       <tr>
-         <td>
-            <% if reservation.room.img.blank?  %>
-                <%= image_tag  "default_img/default-room.png", :width => '300' %>
-            <% else %>
-                <%= image_tag  "#{reservation.room.img}", :width => '300' %>
-         <% end %>
-         </td>
-         <td><%= link_to reservation.room.name, room_path(reservation.room_id) %></td>
-         <td><%= reservation.room.introduction %></td>
-         <td><%= reservation.sum_price %></td>
-         <td><%= reservation.check_in %></td>
-         <td><%= reservation.check_out %></td>
-         <td><%= l reservation.created_at, format: :time %></td>
-         <td><%= link_to "削除", reservation, method: :delete, data: { confirm: "本当に削除しますか？" } %></td>
-       </tr>
-     <% end %>
-   </tbody>
- </table>
+    <table>
+        <thead>
+            <tr>
+                <th>施設画像</th>
+                <th>施設名</th>
+                <th>施設詳細</th>
+                <th>合計料金</th>
+                <th>チェックイン</th>
+                <th>チェックアウト</th>
+                <th>予約確定日時</th>
+                <th>削除</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @reservations.each do |reservation| %>
+                <tr>
+                    <td>
+                        <% if reservation.room.img.blank?  %>
+                            <%= image_tag  "default_img/default-room.png", :width => '200' %>
+                        <% else %>
+                            <%= image_tag  "#{reservation.room.img}", :width => '300' %>
+                    <% end %>
+                    </td>
+                    <td><%= link_to reservation.room.name, room_path(reservation.room_id) %></td>
+                    <td><%= reservation.room.introduction %></td>
+                    <td><%= reservation.sum_price %></td>
+                    <td><%= reservation.check_in %></td>
+                    <td><%= reservation.check_out %></td>
+                    <td><%= l reservation.created_at, format: :time %></td>
+                    <td><%= link_to "削除", reservation, method: :delete, data: { confirm: "本当に削除しますか？" } %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+ </div>
