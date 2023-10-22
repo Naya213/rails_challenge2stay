@@ -26,7 +26,7 @@
                     </td>
                     <td><%= link_to reservation.room.name, room_path(reservation.room_id) %></td>
                     <td><%= reservation.room.introduction %></td>
-                    <td><%= reservation.sum_price %></td>
+                    <td><%= reservation.sum_price %>円</td>
                     <td><%= reservation.check_in %></td>
                     <td><%= reservation.check_out %></td>
                     <td><%= l reservation.created_at, format: :time %></td>

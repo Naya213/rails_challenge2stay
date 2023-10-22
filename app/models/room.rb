@@ -1,7 +1,7 @@
 class Room < ApplicationRecord
     validates :name, presence: true
     validates :introduction, presence: true
-    validates :price, numericality: {greater_than_or_equal_to: 0}, presence: true
+    validates :price, numericality: {greater_than_or_equal_to: 1}, presence: true
     validates :address, presence: true
 
   def self.looks(search,word,word2)

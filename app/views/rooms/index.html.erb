@@ -26,7 +26,7 @@
             </td>
             <td><%= link_to room.name, room_path(room.id) %></td>
             <td><%= room.introduction %></td>
-            <td><%= room.price %></td>
+            <td>￥<%= room.price %>〜</td>
             <td><%= room.address %></td>
             <td class="link_btn"><%= link_to "詳細はこちら", room_path(room.id) %></td>
         </tr>
