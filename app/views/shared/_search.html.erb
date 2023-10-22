@@ -1,0 +1,8 @@
+<div class="search_area">
+    <%= form_with url: rooms_path, local: true, method: :get do |f| %>
+        <%= f.text_field :word, :placeholder => "エリア名を入力" %>
+        <%= f.text_field :word2, :placeholder => "キーワード名を入力" %>
+        <%= f.hidden_field :search, value: "Multiple_search" %>
+        <%= f.submit "検索", class: "btn-sm btn-primary" %>
+    <% end %>
+</div>

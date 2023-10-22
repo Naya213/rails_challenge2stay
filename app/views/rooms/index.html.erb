@@ -1,0 +1,36 @@
+<%= render "shared/search" %>
+<div class="room_list">
+    <h3><%= @search_rooms.count %>件が見つかりました</h2>
+
+    <table>
+    <thead>
+        <tr>
+        <th>施設画像</th>
+        <th>施設名</th>
+        <th>施設詳細</th>
+        <th>価格</th>
+        <th>住所</th>
+        <th></th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <% @search_rooms.each do |room| %>
+        <tr>
+            <td class="img-profile">
+                <% if room.img.blank?  %>
+                    <%= image_tag  "default_img/default-room.png" %>
+                <% else %>
+                    <%= image_tag  "#{room.img}" %>
+                <% end %>
+            </td>
+            <td><%= link_to room.name, room_path(room.id) %></td>
+            <td><%= room.introduction %></td>
+            <td>￥<%= room.price %>〜</td>
+            <td><%= room.address %></td>
+            <td class="link_btn"><%= link_to "詳細はこちら", room_path(room.id) %></td>
+        </tr>
+        <% end %>
+    </tbody>
+    </table>
+</div>

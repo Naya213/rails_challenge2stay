@@ -38,3 +38,6 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# 「carrierwave Gem」で使用しているuploadsフォルダの画像は課題作成時しか使用しないため無視する
+public/uploads/

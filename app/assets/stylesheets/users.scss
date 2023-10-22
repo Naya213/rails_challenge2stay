@@ -1,0 +1,256 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.profile,.account{
+    display: none;
+}
+body{
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+a{
+    text-decoration: none;
+}
+ul,li{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.notice,.alert{
+    position: fixed;
+    top: 650px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    background-color: #000;
+    color: rgba(255,255,255,0.9);
+    padding: 20px 35px;
+    text-align: center;
+    border-radius: 15px;
+}
+// ----------------------------------------
+header,footer{
+    background-color: #1c1d3b;
+    width: 100%;
+    align-items: center;
+}
+header{
+    height: 80px;
+    position: relative;
+}
+footer{
+    height: 465px;
+    color: #fff;
+    display: grid;
+}
+.container{
+    width: 90%;    
+    margin: 0 auto;
+}
+header .container{
+    display: flex;
+    justify-content: space-between;
+}
+header h1 a img, footer a img{
+    width: 221px;
+}
+nav>a{
+    // 新規登録とログインにのみ適応のためnav直下のaタグのみに指定
+    color: #fff;
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 10px;
+}
+.linkArea-user{
+    padding: 18px 0;
+    cursor: pointer;
+}
+.linkArea-user img{
+    width: 40px;
+    vertical-align: middle; 
+}
+.linkArea-user span{
+    color: #fff;
+}
+.linkArea-user span::after{
+    content: ">";
+}
+ul.dropdown-menu{
+    display: none;
+    position: absolute;
+    top: 85px;
+    right: 40px;
+    border: 1px solid rgba(0,0,0,.15);
+    background-color: #fff;
+    padding: 5px;
+}
+// ----------------------------------------
+.FirstView{
+    background-image: url(first-view.jpg);
+    width: 100%;
+    height: 850px;
+    padding-top: 117px;
+}
+.FirstView h2 {
+    color: #fff;
+    font-size: 84px;
+    font-weight: 400;
+    line-height: 101px;
+    margin-top: 0;
+    margin-bottom: 48px;
+    text-align: center;
+    word-break: keep-all;
+}
+.FirstView form{
+    background: hsla(0,0%,100%,.4);
+    margin: auto;
+    padding: 32px;
+    width: 704px;
+}
+.FirstView form input{
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 70px;
+    padding: 0;
+}
+.FirstView form input[type="submit"]{
+    margin-top: 40px;
+}
+// ----------------------------------------
+.user-info{
+    width: 80%;
+    margin: 50px auto;
+}
+.user-info h2{
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.user-setting{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.user-setting table{
+    border-collapse:collapse;
+}
+.user-setting table.link-user-setting{
+    width: 20%;
+    height: 100px;
+}
+.user-setting table.link-user-setting td{
+    border: 1px solid #333;
+    padding: 20px 10px;
+}
+.user-setting table.user-data{
+    width: 70%;
+}
+.user-setting table.user-data th{
+    width: 30%;
+    text-align: left;
+}
+.user-setting table.user-data td{
+    width: 70%;
+    padding: 20px 10px;
+}
+.user-setting table.user-data thead{
+    font-size: 25px;
+}
+.user-setting table.user-data thead th{
+    border-bottom: 1px solid #333;
+}
+.user-setting table.user-data thead th:nth-child(2){
+    text-align: right;
+}
+td.img-profile img{
+    width: 120px;
+}
+// ----------------------------------------
+.user_info_edit{
+    width: 80%;
+    margin: 50px auto;
+}
+.user_info_edit table.user-data-edit{
+    width: 70%;
+}
+.user_info_edit table.user-data-edit thead th{
+    text-align: left;
+    font-size: 25px;
+    border-bottom: 1px solid #333;
+}
+.user_info_edit table.user-data-edit tbody tr{
+    margin-top: 20px;
+}
+.user_info_edit table.user-data-edit tbody tr th{
+    text-align: left;
+    width: 120px;
+}
+.user_info_edit table.user-data-edit tbody td{
+    width: 70%;
+}
+.user_info_edit table.user-data-edit tbody td{
+    width: 70%;
+}
+.user_info_edit table.user-data-edit tbody td input{
+    width: 400px;
+}
+.user_info_edit textarea{
+    width: 400px;
+    height: 100px;
+}
+.user_info_edit table.user-data-edit tfoot td{
+    padding-top: 50px;
+    text-align: right;
+}
+.user_info_edit table.user-data-edit tfoot td input[type="submit"]{
+    background-color: #ff7757;
+    border: none;
+    color: #fff;
+    width: 110px;
+    height: 50px;
+}
+.user_info_edit table.user-data-edit tfoot td a{
+    display: block;
+    background-color: #babdc0;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    width: 100px;
+    height: 50px;
+}
+// ----------------------------------------
+.wrapper_login, .wrappers_sign_up{
+    background-color: #dfe2e6;
+    padding: 30px 0;
+}
+.login, .sign_up{
+    width: 30%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+}
+.login form div, .sign_up form div{
+    margin: 0 auto;
+}
+.login input, .sign_up input{
+    width: 100%;
+    padding: 10px 0;
+}
+.login input[type="submit"], .sign_up input[type="submit"]{
+    box-sizing: border-box;
+    padding: 15px 0;
+    margin-top: 10px;
+    background-color: #ff7757;
+    color: #fff;
+    border: none;
+}
+.login>div, .sign_up>div{
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #dfe2e6;
+    color: #fff;
+}
